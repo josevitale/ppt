@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class CampeonatoUsuario
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -16,22 +18,28 @@ class CampeonatoUsuario
     private $id;
 
     /**
+     * @var Campeonato
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Campeonato")
      */
     private $campeonato;
 
     /**
+     * @var Usuario
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Usuario")
      */
     private $usuario;
 
     /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $puntosObtenidos;
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -71,7 +79,7 @@ class CampeonatoUsuario
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getPuntosObtenidos()
     {
@@ -79,7 +87,7 @@ class CampeonatoUsuario
     }
 
     /**
-     * @param integer $puntosObtenidos
+     * @param int $puntosObtenidos
      */
     public function setPuntosObtenidos($puntosObtenidos)
     {

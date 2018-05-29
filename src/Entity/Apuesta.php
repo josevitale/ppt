@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Apuesta
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -16,38 +18,57 @@ class Apuesta
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $nombre;
 
     /**
+     * @var Equipo
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Equipo")
      * @ORM\JoinColumn(nullable=false)
      */
     private $equipoGanador;
 
     /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $puntosQueOtorga;
 
     /**
+     * @var bool
+     *
      * @ORM\Column(type="boolean")
      */
     private $resultado;
 
     /**
+     * @var \DateTime
+     *
      * @ORM\Column(type="datetime")
      */
     private $fechaHasta;
 
     /**
+     * @var Agrupamiento
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Agrupamiento")
      */
     private $agrupamiento;
 
     /**
-     * @return integer
+     * @var Partido
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Partido")
+     */
+    private $partido;
+
+    /**
+     * @return int
      */
     public function getId()
     {
@@ -87,7 +108,7 @@ class Apuesta
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getPuntosQueOtorga()
     {
@@ -95,7 +116,7 @@ class Apuesta
     }
 
     /**
-     * @param mixed $puntosQueOtorga
+     * @param int $puntosQueOtorga
      */
     public function setPuntosQueOtorga($puntosQueOtorga)
     {
@@ -103,7 +124,7 @@ class Apuesta
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getResultado()
     {
@@ -111,7 +132,7 @@ class Apuesta
     }
 
     /**
-     * @param boolean $resultado
+     * @param bool $resultado
      */
     public function setResultado($resultado)
     {
@@ -148,5 +169,21 @@ class Apuesta
     public function setAgrupamiento($agrupamiento)
     {
         $this->agrupamiento = $agrupamiento;
+    }
+
+    /**
+     * @return Partido
+     */
+    public function getPartido(): Partido
+    {
+        return $this->partido;
+    }
+
+    /**
+     * @param Partido $partido
+     */
+    public function setPartido(Partido $partido)
+    {
+        $this->partido = $partido;
     }
 }

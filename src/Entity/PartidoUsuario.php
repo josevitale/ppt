@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class PartidoUsuario
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -16,57 +18,56 @@ class PartidoUsuario
     private $id;
 
     /**
+     * @var Partido
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Partido")
      */
     private $partido;
 
     /**
+     * @var Usuario
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Usuario")
      */
     private $usuario;
 
     /**
+     * @var \DateTime
+     *
      * @ORM\Column(type="datetime")
      */
     private $fecha;
 
     /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $golesLocal;
 
     /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $golesVisitante;
 
     /**
-     * @ORM\Column(type="smallint")
-     */
-    private $penalesLocal;
-
-    /**
-     * @ORM\Column(type="smallint")
-     */
-    private $penalesVisitante;
-
-    /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $resultado;
 
     /**
-     * @ORM\Column(type="smallint")
-     */
-    private $resultadoPenales;
-
-    /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $puntosObtenidos;
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -122,7 +123,7 @@ class PartidoUsuario
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getGolesLocal()
     {
@@ -130,7 +131,7 @@ class PartidoUsuario
     }
 
     /**
-     * @param integer $golesLocal
+     * @param int $golesLocal
      */
     public function setGolesLocal($golesLocal)
     {
@@ -138,7 +139,7 @@ class PartidoUsuario
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getGolesVisitante()
     {
@@ -146,7 +147,7 @@ class PartidoUsuario
     }
 
     /**
-     * @param integer $golesVisitante
+     * @param int $golesVisitante
      */
     public function setGolesVisitante($golesVisitante)
     {
@@ -154,39 +155,7 @@ class PartidoUsuario
     }
 
     /**
-     * @return integer
-     */
-    public function getPenalesLocal()
-    {
-        return $this->penalesLocal;
-    }
-
-    /**
-     * @param integer $penalesLocal
-     */
-    public function setPenalesLocal($penalesLocal)
-    {
-        $this->penalesLocal = $penalesLocal;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getPenalesVisitante()
-    {
-        return $this->penalesVisitante;
-    }
-
-    /**
-     * @param integer $penalesVisitante
-     */
-    public function setPenalesVisitante($penalesVisitante)
-    {
-        $this->penalesVisitante = $penalesVisitante;
-    }
-
-    /**
-     * @return integer
+     * @return int
      */
     public function getResultado()
     {
@@ -194,7 +163,7 @@ class PartidoUsuario
     }
 
     /**
-     * @param integer $resultado
+     * @param int $resultado
      */
     public function setResultado($resultado)
     {
@@ -202,23 +171,7 @@ class PartidoUsuario
     }
 
     /**
-     * @return integer
-     */
-    public function getResultadoPenales()
-    {
-        return $this->resultadoPenales;
-    }
-
-    /**
-     * @param integer $resultadoPenales
-     */
-    public function setResultadoPenales($resultadoPenales)
-    {
-        $this->resultadoPenales = $resultadoPenales;
-    }
-
-    /**
-     * @return integer
+     * @return int
      */
     public function getPuntosObtenidos()
     {
@@ -226,7 +179,7 @@ class PartidoUsuario
     }
 
     /**
-     * @param integer $puntosObtenidos
+     * @param int $puntosObtenidos
      */
     public function setPuntosObtenidos($puntosObtenidos)
     {

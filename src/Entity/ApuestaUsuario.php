@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class ApuestaUsuario
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -16,38 +18,50 @@ class ApuestaUsuario
     private $id;
 
     /**
+     * @var Apuesta
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Apuesta")
      */
     private $apuesta;
 
     /**
+     * @var Usuario
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Usuario")
      */
     private $usuario;
 
     /**
+     * @var \DateTime
+     *
      * @ORM\Column(type="datetime")
      */
     private $fecha;
 
     /**
+     * @var Equipo
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Equipo")
      * @ORM\JoinColumn(nullable=false)
      */
     private $equipoGanador;
 
     /**
+     * @var bool
+     *
      * @ORM\Column(type="boolean")
      */
     private $resultado;
 
     /**
+     * @var int
+     *
      * @ORM\Column(type="smallint")
      */
     private $puntosObtenidos;
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -119,7 +133,7 @@ class ApuestaUsuario
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getResultado()
     {
@@ -127,7 +141,7 @@ class ApuestaUsuario
     }
 
     /**
-     * @param boolean $resultado
+     * @param bool $resultado
      */
     public function setResultado($resultado)
     {
@@ -135,7 +149,7 @@ class ApuestaUsuario
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getPuntosObtenidos()
     {
@@ -143,7 +157,7 @@ class ApuestaUsuario
     }
 
     /**
-     * @param integer $puntosObtenidos
+     * @param int $puntosObtenidos
      */
     public function setPuntosObtenidos($puntosObtenidos)
     {

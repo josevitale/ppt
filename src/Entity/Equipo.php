@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Equipo
 {
     /**
+     * @var int
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -16,12 +18,14 @@ class Equipo
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $nombre;
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {

@@ -10,6 +10,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class Usuario implements UserInterface, \Serializable
 {
     /**
+     * @var int
+     *
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -17,21 +19,36 @@ class Usuario implements UserInterface, \Serializable
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=64)
      */
     private $password;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=254, unique=true)
      */
     private $email;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(type="string", length=254, unique=true)
+     */
+    private $roles = [];
+
+    /**
+     * @var bool
+     *
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
@@ -41,24 +58,89 @@ class Usuario implements UserInterface, \Serializable
         $this->isActive = true;
     }
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
     public function getUsername()
     {
         return $this->username;
     }
 
-    public function getSalt()
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username)
     {
-        return null;
+        $this->username = $username;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return array
+     */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        $roles = $this->roles;
+        if (empty($roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+
+        return array_unique($roles);
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSalt()
+    {
+        return null;
     }
 
     public function eraseCredentials()
