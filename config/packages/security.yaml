@@ -17,5 +17,10 @@ security:
             pattern:    ^/
             http_basic: ~
             provider: db_provider
+            guard:
+                authenticators:
+                    - App\Security\FormAuthenticator
+                    - App\Security\TokenAuthenticator
+                entry_point: App\Security\FormAuthenticator
 
     access_control:
