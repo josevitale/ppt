@@ -5,7 +5,6 @@ namespace App\Security;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -15,17 +14,15 @@ use App\Response\ResponseFactory;
 
 class TokenAuthenticator extends AbstractGuardAuthenticator
 {
-    private $em;
-    private $passwordEncoder;
-    private $responseFactory;
     private $jwtPassword;
+    private $em;
+    private $responseFactory;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, ResponseFactory $responseFactory, string $jwtPassword)
+    public function __construct(string $jwtPassword, EntityManagerInterface $em, ResponseFactory $responseFactory)
     {
-        $this->em = $em;
-        $this->passwordEncoder = $passwordEncoder;
-        $this->responseFactory = $responseFactory;
         $this->jwtPassword = $jwtPassword;
+        $this->em = $em;
+        $this->responseFactory = $responseFactory;
     }
 
     public function getCredentials(Request $request)
@@ -41,7 +38,7 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
     {
         $username = $credentials['_username'];
 
-        return $this->em->getRepository('AppBundle:User')
+        return $this->em->getRepository('App:Usuario')
             ->findOneBy(['username' => $username]);
     }
 

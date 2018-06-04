@@ -21,21 +21,21 @@ use App\Response\ResponseFactory;
 
 class FormAuthenticator extends AbstractGuardAuthenticator
 {
+    private $jwtPassword;
     private $formFactory;
     private $em;
     private $router;
     private $passwordEncoder;
     private $responseFactory;
-    private $jwtPassword;
 
-    public function __construct(FormFactoryInterface $formFactory, EntityManagerInterface $em, RouterInterface $router, UserPasswordEncoderInterface $passwordEncoder, ResponseFactory $responseFactory, string $jwtPassword)
+    public function __construct($jwtPassword, FormFactoryInterface $formFactory, EntityManagerInterface $em, RouterInterface $router, UserPasswordEncoderInterface $passwordEncoder, ResponseFactory $responseFactory)
     {
+        $this->jwtPassword = $jwtPassword;
         $this->formFactory = $formFactory;
         $this->em = $em;
         $this->router = $router;
         $this->passwordEncoder = $passwordEncoder;
         $this->responseFactory = $responseFactory;
-        $this->jwtPassword = $jwtPassword;
     }
 
     public function getCredentials(Request $request)
@@ -62,7 +62,7 @@ class FormAuthenticator extends AbstractGuardAuthenticator
     {
         $username = $credentials['_username'];
 
-        return $this->em->getRepository('AppBundle:User')
+        return $this->em->getRepository('App:Usuario')
             ->findOneBy(['username' => $username]);
     }
 
