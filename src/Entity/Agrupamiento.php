@@ -20,14 +20,14 @@ class Agrupamiento
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      */
     private $nombre;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $etapa;
 
@@ -67,17 +67,17 @@ class Agrupamiento
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getEtapa(): string
+    public function getEtapa(): int
     {
         return $this->etapa;
     }
 
     /**
-     * @param string $etapa
+     * @param int $etapa
      */
-    public function setEtapa(string $etapa)
+    public function setEtapa(int $etapa)
     {
         $this->etapa = $etapa;
     }
