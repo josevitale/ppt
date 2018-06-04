@@ -87,6 +87,7 @@ class ResponseFactory
         $controllerRequest = explode("Controller::", $request->attributes->get('_controller'));
         $controllerRequest[0] = explode("\\", $controllerRequest[0]);
         $controllerRequest[0] = $controllerRequest[0][count($controllerRequest[0]) - 1];
+
         $controller = array(
             'controller' => strtolower($controllerRequest[0]),
             'action' => str_replace('Action', '', $controllerRequest[1]),
@@ -97,7 +98,7 @@ class ResponseFactory
 
     protected function getControllerConfig($controller)
     {
-        $controllerConfigFile = $this->container->get('kernel')->getRootDir() . '/Resources/config/controller/' . $controller['controller'] . '.yml';
+        $controllerConfigFile = $this->container->get('kernel')->getProjectDir() . '/config/controllers/' . $controller['controller'] . '.yaml';
         if (file_exists($controllerConfigFile)) {
             $controllerConfig = Yaml::parseFile($controllerConfigFile);
         }
@@ -149,7 +150,7 @@ class ResponseFactory
             }
         }
 
-        return $this->container->get('templating')->render($view, $datos);
+        return $this->container->get('twig')->render($view, $datos);
     }
 
     protected function getRedirectResponse(ResponseData $responseData)
