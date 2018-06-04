@@ -1,0 +1,45 @@
+general:
+    acceso_denegado: 'No tiene permisos para realizar esta operación'
+    acciones: Acciones
+    agregar: Agregar
+    cancelar: Cancelar
+    eliminar: Eliminar
+    listar: Listar
+    modificar: Modificar
+    submit: Aceptar
+    ver: Ver
+    volver: Volver
+
+security:
+    solicitud_credenciales: 'Ingrese usuario y contraseña'
+    username: 'Nombre de usuario'
+    password: Contraseña
+    remember_me: Recordar
+    logged_in_as: 'Identificado como %username%'
+    login: Ingresar
+    logout: Salir
+
+usuario:
+    new:
+        titulo: 'Nuevo usuario'
+        usuario_creado: 'Usuario creado'
+    edit:
+        titulo: 'Modificar usuario'
+        usuario_modificado: 'Usuario modificado'
+    show:
+        titulo: 'Usuario'
+    remove:
+        titulo: 'Eliminar usuario'
+        usuario_eliminado: 'Usuario eliminado'
+        advertencia: '¡Atención! Se eliminará al usuario "%username%" del sistema. ¿Desea continuar?'
+    list:
+        titulo: 'Usuarios'
+        id: 'Id'
+        email: 'Email'
+        username: 'Nombre'
+    type:
+        email: 'Email'
+        username: 'Nombre de usuario'
+        plain_password:
+            password: 'Contraseña'
+            confirmacion: 'Repita la contraseña'

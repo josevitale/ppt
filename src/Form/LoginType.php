@@ -18,6 +18,6 @@ class LoginType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'appbundle_login';
+        return 'app_login';
     }
 }

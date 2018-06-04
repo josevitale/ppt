@@ -1,0 +1,30 @@
+list:
+    accept: ['text/html', 'application/json']
+    template: "usuario/list.html.twig"
+
+new:
+    accept: ['text/html']
+    template: "usuario/new.html.twig"
+
+create:
+    accept: ['text/html', 'application/json']
+    template: "usuario/new.html.twig"
+
+show:
+    accept: ['text/html', 'application/json']
+    template: "usuario/show.html.twig"
+
+edit:
+    accept: ['text/html']
+    template: "usuario/edit.html.twig"
+
+update:
+    accept: ['text/html', 'application/json']
+    template: "usuario/edit.html.twig"
+
+remove:
+    accept: ['text/html']
+    template: "usuario/remove.html.twig"
+
+delete:
+    accept: ['text/html', 'application/json']
