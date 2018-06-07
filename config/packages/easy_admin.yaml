@@ -1,0 +1,16 @@
+easy_admin:
+    site_name: '%env(APP_NOMBRE)%</em>'
+    design:
+        menu:
+            - { entity: 'Campeonato', label: 'Campeonatos'}
+            - { entity: 'Agrupamiento', label: 'Agrupamientos'}
+            - { entity: 'Equipo', label: 'Equipo'}
+            - { entity: 'Partido', label: 'Partidos'}
+            - { entity: 'Usuario', label: 'Usuarios'}
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Campeonato
+        - App\Entity\Agrupamiento
+        - App\Entity\Equipo
+        - App\Entity\Partido
+        - App\Entity\Usuario
