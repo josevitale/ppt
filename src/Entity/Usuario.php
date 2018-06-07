@@ -49,7 +49,7 @@ class Usuario implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=254, unique=true)
+     * @ORM\Column(type="string", length=191, unique=true)
      */
     private $email;
 

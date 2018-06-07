@@ -69,7 +69,7 @@ class Agrupamiento
     /**
      * @return int
      */
-    public function getEtapa(): int
+    public function getEtapa()
     {
         return $this->etapa;
     }
@@ -77,7 +77,7 @@ class Agrupamiento
     /**
      * @param int $etapa
      */
-    public function setEtapa(int $etapa)
+    public function setEtapa($etapa)
     {
         $this->etapa = $etapa;
     }
@@ -85,7 +85,7 @@ class Agrupamiento
     /**
      * @return Campeonato
      */
-    public function getCampeonato(): Campeonato
+    public function getCampeonato()
     {
         return $this->campeonato;
     }
@@ -93,8 +93,13 @@ class Agrupamiento
     /**
      * @param Campeonato $campeonato
      */
-    public function setCampeonato(Campeonato $campeonato)
+    public function setCampeonato($campeonato)
     {
         $this->campeonato = $campeonato;
+    }
+
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 }

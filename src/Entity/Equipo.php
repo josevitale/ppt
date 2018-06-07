@@ -47,4 +47,9 @@ class Equipo
     {
         $this->nombre = $nombre;
     }
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 }

@@ -47,21 +47,21 @@ class Partido
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", nullable=true)
      */
     private $golesLocal;
 
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint",nullable=true)
      */
     private $golesVisitante;
 
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint",nullable=true)
      */
     private $resultado;
 
