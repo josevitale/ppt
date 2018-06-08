@@ -1,0 +1,24 @@
+partido_usuario_new:
+    path:     /{partido_id}/usuarios/{usuario_id}/new
+    controller: App\Controller\PartidoUsuarioController::new
+    methods:  [GET]
+
+partido_usuario_create:
+    path:     /{partido_id}/usuarios/{usuario_id}/create
+    controller: App\Controller\PartidoUsuarioController::create
+    methods:  [POST]
+
+partido_usuario_edit:
+    path:     /{partido_id}/usuarios/{usuario_id}/edit
+    controller: App\Controller\PartidoUsuarioController::edit
+    methods:  [GET]
+
+partido_usuario_update:
+    path:     /{partido_id}/usuarios/{usuario_id}
+    controller: App\Controller\PartidoUsuarioController::update
+    methods:  [PUT]
+
+partido_usuario_delete:
+    path:     /{partido_id}/usuarios/{usuario_id}
+    controller: App\Controller\PartidoUsuarioController::delete
+    methods:  [DELETE]

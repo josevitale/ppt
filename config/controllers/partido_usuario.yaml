@@ -1,0 +1,22 @@
+new:
+    accept: ['text/html']
+    template: "partido_usuario/new.html.twig"
+
+create:
+    accept: ['text/html', 'application/json']
+    template: "partido_usuario/new.html.twig"
+
+edit:
+    accept: ['text/html']
+    template: "partido_usuario/edit.html.twig"
+
+update:
+    accept: ['text/html', 'application/json']
+    template: "partido_usuario/edit.html.twig"
+
+remove:
+    accept: ['text/html']
+    template: "partido_usuario/remove.html.twig"
+
+delete:
+    accept: ['text/html', 'application/json']

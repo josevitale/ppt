@@ -8,9 +8,10 @@ class DefaultController extends Controller
 {
     public function index()
     {
-        // replace this example code with whatever you need
+        $partidos = $this->getDoctrine()->getRepository('App:Partido')->findAllPartidosOrdenadosPorFecha();
+
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'partidos' => $partidos,
         ]);
     }
 }

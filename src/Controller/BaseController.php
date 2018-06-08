@@ -9,13 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends Controller
 {
-    protected function crearForm($type, Usuario $usuario, array $options = array(), Request $request)
+    protected function crearForm($type, $objeto, array $options = array(), Request $request)
     {
         if ('json' === $request->getContentType()) {
             $options['csrf_protection'] = false;
         }
 
-        return $this->createForm($type, $usuario, $options);
+        return $this->createForm($type, $objeto, $options);
     }
 
     protected function procesarForm(FormInterface $form, Request $request)

@@ -2,9 +2,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
+ * @UniqueEntity(
+ *     fields={"partido", "usuario"},
+ *     message="Solamente se puede pronosticar una vez en cada partido."
+ * )
  */
 class PartidoUsuario
 {
@@ -62,7 +67,7 @@ class PartidoUsuario
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", nullable=true)
      */
     private $puntosObtenidos;
 

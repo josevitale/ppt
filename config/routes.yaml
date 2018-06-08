@@ -7,3 +7,7 @@ security:
 usuario:
     resource: "routes/usuario.yaml"
     prefix: /usuarios
+
+partido_usuario:
+    resource: "routes/partido_usuario.yaml"
+    prefix: /partidos
