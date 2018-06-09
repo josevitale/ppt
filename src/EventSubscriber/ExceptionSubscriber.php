@@ -32,7 +32,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
         if ($exception instanceof ErrorException) {
             $responseError = $exception->getResponseError();
         }
-        else {return;
+        else {
             $statusCode = $exception instanceof HttpExceptionInterface ? $exception->getStatusCode() : 500;
             $responseError = new ResponseError($statusCode);
         }
